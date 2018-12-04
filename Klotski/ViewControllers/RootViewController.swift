@@ -20,9 +20,8 @@ class RootViewController: PageboyViewController {
     // MARK: Variables
     // Views variables
     private var viewControllers: [UIViewController] = []
-    private var mainBoardVC: UIViewController = {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .green
+    private var mainBoardVC: MainBoardViewController = {
+        let viewController = MainBoardViewController()
         return viewController
     }()
     // Control variables
@@ -45,6 +44,9 @@ class RootViewController: PageboyViewController {
 
         // Remove the scrolling possibilities
         self.isScrollEnabled = false
+
+        // Set the root background
+        self.view.backgroundColor = .white
     }
 
 }

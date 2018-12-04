@@ -16,6 +16,14 @@
 		FA7EED8B21B6867A0069DE72 /* KlotskiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED8A21B6867A0069DE72 /* KlotskiTests.swift */; };
 		FA7EED9621B6867A0069DE72 /* KlotskiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED9521B6867A0069DE72 /* KlotskiUITests.swift */; };
 		FA7EEDA721B689900069DE72 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDA621B689900069DE72 /* RootViewController.swift */; };
+		FA7EEDAA21B6911E0069DE72 /* BlockClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDA921B6911E0069DE72 /* BlockClass.swift */; };
+		FA7EEDAC21B695760069DE72 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDAB21B695760069DE72 /* GlobalVariables.swift */; };
+		FA7EEDAE21B6966C0069DE72 /* AIClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDAD21B6966C0069DE72 /* AIClass.swift */; };
+		FA7EEDB021B6A6FB0069DE72 /* NodeClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDAF21B6A6FB0069DE72 /* NodeClass.swift */; };
+		FA7EEDB221B6A79B0069DE72 /* BoardClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDB121B6A79B0069DE72 /* BoardClass.swift */; };
+		FA7EEDB421B6A9800069DE72 /* MainBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDB321B6A9800069DE72 /* MainBoardViewController.swift */; };
+		FA7EEDB721B6C3C70069DE72 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDB621B6C3C70069DE72 /* UIView+Extensions.swift */; };
+		FA7EEDB921B6C8F60069DE72 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDB821B6C8F60069DE72 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,14 @@
 		FA7EED9521B6867A0069DE72 /* KlotskiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlotskiUITests.swift; sourceTree = "<group>"; };
 		FA7EED9721B6867A0069DE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA7EEDA621B689900069DE72 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FA7EEDA921B6911E0069DE72 /* BlockClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockClass.swift; sourceTree = "<group>"; };
+		FA7EEDAB21B695760069DE72 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
+		FA7EEDAD21B6966C0069DE72 /* AIClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIClass.swift; sourceTree = "<group>"; };
+		FA7EEDAF21B6A6FB0069DE72 /* NodeClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeClass.swift; sourceTree = "<group>"; };
+		FA7EEDB121B6A79B0069DE72 /* BoardClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardClass.swift; sourceTree = "<group>"; };
+		FA7EEDB321B6A9800069DE72 /* MainBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBoardViewController.swift; sourceTree = "<group>"; };
+		FA7EEDB621B6C3C70069DE72 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		FA7EEDB821B6C8F60069DE72 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,9 +151,12 @@
 		FA7EED7421B6866F0069DE72 /* Klotski */ = {
 			isa = PBXGroup;
 			children = (
+				FA7EEDB521B6C3B00069DE72 /* Extensions */,
 				FA7EEDA421B689410069DE72 /* Storyboards */,
 				FA7EEDA321B688A30069DE72 /* Assets */,
+				FA7EEDA821B691070069DE72 /* Classes */,
 				FA7EEDA521B6897C0069DE72 /* ViewControllers */,
+				FA7EEDAB21B695760069DE72 /* GlobalVariables.swift */,
 				FA7EED7521B6866F0069DE72 /* AppDelegate.swift */,
 				FA7EED8121B686790069DE72 /* Info.plist */,
 			);
@@ -181,9 +200,30 @@
 		FA7EEDA521B6897C0069DE72 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FA7EEDB321B6A9800069DE72 /* MainBoardViewController.swift */,
 				FA7EEDA621B689900069DE72 /* RootViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA7EEDA821B691070069DE72 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EEDAD21B6966C0069DE72 /* AIClass.swift */,
+				FA7EEDB121B6A79B0069DE72 /* BoardClass.swift */,
+				FA7EEDAF21B6A6FB0069DE72 /* NodeClass.swift */,
+				FA7EEDA921B6911E0069DE72 /* BlockClass.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FA7EEDB521B6C3B00069DE72 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EEDB621B6C3C70069DE72 /* UIView+Extensions.swift */,
+				FA7EEDB821B6C8F60069DE72 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,7 +437,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA7EEDB021B6A6FB0069DE72 /* NodeClass.swift in Sources */,
+				FA7EEDB921B6C8F60069DE72 /* UIColor+Extensions.swift in Sources */,
+				FA7EEDAA21B6911E0069DE72 /* BlockClass.swift in Sources */,
 				FA7EEDA721B689900069DE72 /* RootViewController.swift in Sources */,
+				FA7EEDB721B6C3C70069DE72 /* UIView+Extensions.swift in Sources */,
+				FA7EEDAE21B6966C0069DE72 /* AIClass.swift in Sources */,
+				FA7EEDB421B6A9800069DE72 /* MainBoardViewController.swift in Sources */,
+				FA7EEDB221B6A79B0069DE72 /* BoardClass.swift in Sources */,
+				FA7EEDAC21B695760069DE72 /* GlobalVariables.swift in Sources */,
 				FA7EED7621B6866F0069DE72 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
