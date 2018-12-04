@@ -1,0 +1,22 @@
+PODS:
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Swift (3.4.2):
+    - CocoaLumberjack/Default
+  - Pageboy (3.0.1)
+
+DEPENDENCIES:
+  - CocoaLumberjack/Swift
+  - Pageboy
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - CocoaLumberjack
+    - Pageboy
+
+SPEC CHECKSUMS:
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  Pageboy: ec0170fd880ea6fa3589219edfd64b554443ff6e
+
+PODFILE CHECKSUM: 694e1bba7b3ec99d638262ff0ed6dffe073d3807
+
+COCOAPODS: 1.5.3

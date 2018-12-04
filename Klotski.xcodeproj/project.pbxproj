@@ -1,0 +1,732 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1447A60281204DFBADBB9B13 /* Pods_Klotski.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A8029EC080E32B472B3E2C /* Pods_Klotski.framework */; };
+		ADF1CF9EA5DDB9021190718F /* Pods_KlotskiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C31B9111833578305A7C4F /* Pods_KlotskiTests.framework */; };
+		C8DFA0FB9599240E15D96C41 /* Pods_KlotskiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F212DD72F725584A754E2E6 /* Pods_KlotskiUITests.framework */; };
+		FA7EED7621B6866F0069DE72 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED7521B6866F0069DE72 /* AppDelegate.swift */; };
+		FA7EED7D21B686790069DE72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA7EED7C21B686790069DE72 /* Assets.xcassets */; };
+		FA7EED8021B686790069DE72 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA7EED7E21B686790069DE72 /* LaunchScreen.storyboard */; };
+		FA7EED8B21B6867A0069DE72 /* KlotskiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED8A21B6867A0069DE72 /* KlotskiTests.swift */; };
+		FA7EED9621B6867A0069DE72 /* KlotskiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EED9521B6867A0069DE72 /* KlotskiUITests.swift */; };
+		FA7EEDA721B689900069DE72 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7EEDA621B689900069DE72 /* RootViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA7EED8721B6867A0069DE72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA7EED6A21B6866F0069DE72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA7EED7121B6866F0069DE72;
+			remoteInfo = Klotski;
+		};
+		FA7EED9221B6867A0069DE72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA7EED6A21B6866F0069DE72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA7EED7121B6866F0069DE72;
+			remoteInfo = Klotski;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F212DD72F725584A754E2E6 /* Pods_KlotskiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlotskiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		249B950F3EC980B06F10CCDD /* Pods-KlotskiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlotskiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KlotskiTests/Pods-KlotskiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		396F8CDBF4E0647AB054BDF0 /* Pods-KlotskiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlotskiUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KlotskiUITests/Pods-KlotskiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		699C2702032B7AF31E914A1E /* Pods-KlotskiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlotskiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KlotskiUITests/Pods-KlotskiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		842B91FE676AEB150500C49D /* Pods-KlotskiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KlotskiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KlotskiTests/Pods-KlotskiTests.release.xcconfig"; sourceTree = "<group>"; };
+		84C31B9111833578305A7C4F /* Pods_KlotskiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KlotskiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EE9F0897FB4416981967D16 /* Pods-Klotski.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klotski.release.xcconfig"; path = "Pods/Target Support Files/Pods-Klotski/Pods-Klotski.release.xcconfig"; sourceTree = "<group>"; };
+		CE5192C0E897B1150CCB8FDE /* Pods-Klotski.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Klotski.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Klotski/Pods-Klotski.debug.xcconfig"; sourceTree = "<group>"; };
+		E0A8029EC080E32B472B3E2C /* Pods_Klotski.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Klotski.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7EED7221B6866F0069DE72 /* Klotski.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Klotski.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7EED7521B6866F0069DE72 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA7EED7C21B686790069DE72 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FA7EED7F21B686790069DE72 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA7EED8121B686790069DE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA7EED8621B6867A0069DE72 /* KlotskiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlotskiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7EED8A21B6867A0069DE72 /* KlotskiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlotskiTests.swift; sourceTree = "<group>"; };
+		FA7EED8C21B6867A0069DE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA7EED9121B6867A0069DE72 /* KlotskiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KlotskiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA7EED9521B6867A0069DE72 /* KlotskiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KlotskiUITests.swift; sourceTree = "<group>"; };
+		FA7EED9721B6867A0069DE72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA7EEDA621B689900069DE72 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FA7EED6F21B6866F0069DE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1447A60281204DFBADBB9B13 /* Pods_Klotski.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8321B6867A0069DE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADF1CF9EA5DDB9021190718F /* Pods_KlotskiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8E21B6867A0069DE72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8DFA0FB9599240E15D96C41 /* Pods_KlotskiUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5489FC48307E794B51956011 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CE5192C0E897B1150CCB8FDE /* Pods-Klotski.debug.xcconfig */,
+				9EE9F0897FB4416981967D16 /* Pods-Klotski.release.xcconfig */,
+				249B950F3EC980B06F10CCDD /* Pods-KlotskiTests.debug.xcconfig */,
+				842B91FE676AEB150500C49D /* Pods-KlotskiTests.release.xcconfig */,
+				396F8CDBF4E0647AB054BDF0 /* Pods-KlotskiUITests.debug.xcconfig */,
+				699C2702032B7AF31E914A1E /* Pods-KlotskiUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F91BC915F9F3281AC012BD57 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E0A8029EC080E32B472B3E2C /* Pods_Klotski.framework */,
+				84C31B9111833578305A7C4F /* Pods_KlotskiTests.framework */,
+				0F212DD72F725584A754E2E6 /* Pods_KlotskiUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA7EED6921B6866E0069DE72 = {
+			isa = PBXGroup;
+			children = (
+				FA7EED7421B6866F0069DE72 /* Klotski */,
+				FA7EED8921B6867A0069DE72 /* KlotskiTests */,
+				FA7EED9421B6867A0069DE72 /* KlotskiUITests */,
+				FA7EED7321B6866F0069DE72 /* Products */,
+				5489FC48307E794B51956011 /* Pods */,
+				F91BC915F9F3281AC012BD57 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FA7EED7321B6866F0069DE72 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED7221B6866F0069DE72 /* Klotski.app */,
+				FA7EED8621B6867A0069DE72 /* KlotskiTests.xctest */,
+				FA7EED9121B6867A0069DE72 /* KlotskiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FA7EED7421B6866F0069DE72 /* Klotski */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EEDA421B689410069DE72 /* Storyboards */,
+				FA7EEDA321B688A30069DE72 /* Assets */,
+				FA7EEDA521B6897C0069DE72 /* ViewControllers */,
+				FA7EED7521B6866F0069DE72 /* AppDelegate.swift */,
+				FA7EED8121B686790069DE72 /* Info.plist */,
+			);
+			path = Klotski;
+			sourceTree = "<group>";
+		};
+		FA7EED8921B6867A0069DE72 /* KlotskiTests */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED8A21B6867A0069DE72 /* KlotskiTests.swift */,
+				FA7EED8C21B6867A0069DE72 /* Info.plist */,
+			);
+			path = KlotskiTests;
+			sourceTree = "<group>";
+		};
+		FA7EED9421B6867A0069DE72 /* KlotskiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED9521B6867A0069DE72 /* KlotskiUITests.swift */,
+				FA7EED9721B6867A0069DE72 /* Info.plist */,
+			);
+			path = KlotskiUITests;
+			sourceTree = "<group>";
+		};
+		FA7EEDA321B688A30069DE72 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED7C21B686790069DE72 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		FA7EEDA421B689410069DE72 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EED7E21B686790069DE72 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA7EEDA521B6897C0069DE72 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA7EEDA621B689900069DE72 /* RootViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FA7EED7121B6866F0069DE72 /* Klotski */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA7EED9A21B6867A0069DE72 /* Build configuration list for PBXNativeTarget "Klotski" */;
+			buildPhases = (
+				5B98F5BF15195F3E6FA4C683 /* [CP] Check Pods Manifest.lock */,
+				FA7EED6E21B6866F0069DE72 /* Sources */,
+				FA7EED6F21B6866F0069DE72 /* Frameworks */,
+				FA7EED7021B6866F0069DE72 /* Resources */,
+				ACD357D037E3F44346BEA2A7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Klotski;
+			productName = Klotski;
+			productReference = FA7EED7221B6866F0069DE72 /* Klotski.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA7EED8521B6867A0069DE72 /* KlotskiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA7EED9D21B6867A0069DE72 /* Build configuration list for PBXNativeTarget "KlotskiTests" */;
+			buildPhases = (
+				577392519FC4DB24545CD732 /* [CP] Check Pods Manifest.lock */,
+				FA7EED8221B6867A0069DE72 /* Sources */,
+				FA7EED8321B6867A0069DE72 /* Frameworks */,
+				FA7EED8421B6867A0069DE72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA7EED8821B6867A0069DE72 /* PBXTargetDependency */,
+			);
+			name = KlotskiTests;
+			productName = KlotskiTests;
+			productReference = FA7EED8621B6867A0069DE72 /* KlotskiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FA7EED9021B6867A0069DE72 /* KlotskiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA7EEDA021B6867A0069DE72 /* Build configuration list for PBXNativeTarget "KlotskiUITests" */;
+			buildPhases = (
+				90613E0CB36623A1025E8E18 /* [CP] Check Pods Manifest.lock */,
+				FA7EED8D21B6867A0069DE72 /* Sources */,
+				FA7EED8E21B6867A0069DE72 /* Frameworks */,
+				FA7EED8F21B6867A0069DE72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA7EED9321B6867A0069DE72 /* PBXTargetDependency */,
+			);
+			name = KlotskiUITests;
+			productName = KlotskiUITests;
+			productReference = FA7EED9121B6867A0069DE72 /* KlotskiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FA7EED6A21B6866F0069DE72 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Malenea;
+				TargetAttributes = {
+					FA7EED7121B6866F0069DE72 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FA7EED8521B6867A0069DE72 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FA7EED7121B6866F0069DE72;
+					};
+					FA7EED9021B6867A0069DE72 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FA7EED7121B6866F0069DE72;
+					};
+				};
+			};
+			buildConfigurationList = FA7EED6D21B6866F0069DE72 /* Build configuration list for PBXProject "Klotski" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FA7EED6921B6866E0069DE72;
+			productRefGroup = FA7EED7321B6866F0069DE72 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FA7EED7121B6866F0069DE72 /* Klotski */,
+				FA7EED8521B6867A0069DE72 /* KlotskiTests */,
+				FA7EED9021B6867A0069DE72 /* KlotskiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FA7EED7021B6866F0069DE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7EED8021B686790069DE72 /* LaunchScreen.storyboard in Resources */,
+				FA7EED7D21B686790069DE72 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8421B6867A0069DE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8F21B6867A0069DE72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		577392519FC4DB24545CD732 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KlotskiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B98F5BF15195F3E6FA4C683 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Klotski-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90613E0CB36623A1025E8E18 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KlotskiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD357D037E3F44346BEA2A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Klotski/Pods-Klotski-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Klotski/Pods-Klotski-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FA7EED6E21B6866F0069DE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7EEDA721B689900069DE72 /* RootViewController.swift in Sources */,
+				FA7EED7621B6866F0069DE72 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8221B6867A0069DE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7EED8B21B6867A0069DE72 /* KlotskiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA7EED8D21B6867A0069DE72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA7EED9621B6867A0069DE72 /* KlotskiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA7EED8821B6867A0069DE72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA7EED7121B6866F0069DE72 /* Klotski */;
+			targetProxy = FA7EED8721B6867A0069DE72 /* PBXContainerItemProxy */;
+		};
+		FA7EED9321B6867A0069DE72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA7EED7121B6866F0069DE72 /* Klotski */;
+			targetProxy = FA7EED9221B6867A0069DE72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FA7EED7E21B686790069DE72 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA7EED7F21B686790069DE72 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FA7EED9821B6867A0069DE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FA7EED9921B6867A0069DE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FA7EED9B21B6867A0069DE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE5192C0E897B1150CCB8FDE /* Pods-Klotski.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = Klotski/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.Klotski;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA7EED9C21B6867A0069DE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EE9F0897FB4416981967D16 /* Pods-Klotski.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = Klotski/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.Klotski;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA7EED9E21B6867A0069DE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 249B950F3EC980B06F10CCDD /* Pods-KlotskiTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = KlotskiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.KlotskiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klotski.app/Klotski";
+			};
+			name = Debug;
+		};
+		FA7EED9F21B6867A0069DE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 842B91FE676AEB150500C49D /* Pods-KlotskiTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = KlotskiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.KlotskiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Klotski.app/Klotski";
+			};
+			name = Release;
+		};
+		FA7EEDA121B6867A0069DE72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 396F8CDBF4E0647AB054BDF0 /* Pods-KlotskiUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = KlotskiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.KlotskiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Klotski;
+			};
+			name = Debug;
+		};
+		FA7EEDA221B6867A0069DE72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 699C2702032B7AF31E914A1E /* Pods-KlotskiUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = U7V9WS2L47;
+				INFOPLIST_FILE = KlotskiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.malenea.KlotskiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Klotski;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FA7EED6D21B6866F0069DE72 /* Build configuration list for PBXProject "Klotski" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7EED9821B6867A0069DE72 /* Debug */,
+				FA7EED9921B6867A0069DE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA7EED9A21B6867A0069DE72 /* Build configuration list for PBXNativeTarget "Klotski" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7EED9B21B6867A0069DE72 /* Debug */,
+				FA7EED9C21B6867A0069DE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA7EED9D21B6867A0069DE72 /* Build configuration list for PBXNativeTarget "KlotskiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7EED9E21B6867A0069DE72 /* Debug */,
+				FA7EED9F21B6867A0069DE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA7EEDA021B6867A0069DE72 /* Build configuration list for PBXNativeTarget "KlotskiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA7EEDA121B6867A0069DE72 /* Debug */,
+				FA7EEDA221B6867A0069DE72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FA7EED6A21B6866F0069DE72 /* Project object */;
+}
