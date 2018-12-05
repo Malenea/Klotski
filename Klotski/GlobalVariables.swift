@@ -9,3 +9,7 @@
 enum BlockType: Int {
     case empty = 0, smallBlock, verticalBlock, horizontalBlock, bigBlock
 }
+
+enum Direction: Int {
+    case up = 0, left, down, right
+}

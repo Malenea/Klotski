@@ -58,7 +58,7 @@ class Block {
     }
 
     // MARK: Init functions
-    init(id: String, width: Int, height: Int, coordinates: (Int, Int)) {
+    init(id: String, height: Int, width: Int, coordinates: (Int, Int)) {
         self._id = id
         self._width = width
         self._height = height

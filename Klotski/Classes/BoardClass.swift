@@ -30,7 +30,7 @@ class Board {
     }
 
     // MARK: Init functions
-    init(width: Int, height: Int) {
+    init(height: Int, width: Int) {
         self._width = width
         self._height = height
         for lineIndex in 0 ..< height {
