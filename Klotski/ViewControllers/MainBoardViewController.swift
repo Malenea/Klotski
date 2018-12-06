@@ -21,7 +21,6 @@ class MainBoardViewController: UIViewController {
     private var _boardWidth: Int!
     private var _boardHeight: Int!
     private var _boardDisplay: UIView!
-    private var _nodesViews: [[UIView]] = []
     private var _AI: AI!
     // Getters
     var boardWidth: Int {
@@ -61,7 +60,20 @@ class MainBoardViewController: UIViewController {
         // Display the blocks in the board
         self.createDisplayNodes(from: self._board, with: self._cellSize)
 
-        self._AI.searchPath()
+        DispatchQueue.global(qos: .background).async {
+            self._AI.searchPath() { layoutNodes in
+                DispatchQueue.main.async {
+                    for node in layoutNodes {
+                        print("~> \(node.layout.board)")
+                        let updatedBoard = self._AI.createBoardFrom(layout: node.layout)
+                        self._boardDisplay.removeFromSuperview()
+                        self.createDisplayNodes(from: updatedBoard, with: self._cellSize)
+                        self.view.addSubview(self._boardDisplay)
+                        sleep(1)
+                    }
+                }
+            }
+        }
     }
 
     // Default positionning for the blocks
@@ -98,7 +110,6 @@ class MainBoardViewController: UIViewController {
         var lineCount: Int = 0
         for line in board.nodes {
             var nodeCount: Int = 0
-            self._nodesViews.append([])
             for node in line {
                 let view = UIView(frame: CGRect(x: cellSize * CGFloat(nodeCount),
                                                 y: cellSize * CGFloat(lineCount),
@@ -143,7 +154,6 @@ class MainBoardViewController: UIViewController {
                         break
                     }
                 }
-                self._nodesViews[lineCount].append(view)
                 self._boardDisplay.addSubview(view)
                 nodeCount += 1
             }
