@@ -11,16 +11,16 @@ import UIKit
 
 class Utils {
 
-    class func BoardArrayToArray(_ MultiArray: [[String]]) -> (String, String) {
-        var result: String = ""
-        var invertedResult: String = ""
+    class func BoardArrayToArray(_ MultiArray: [[BlockType]]) -> ([BlockType], [BlockType]) {
+        var result: [BlockType] = []
+        var invertedResult: [BlockType] = []
         for line in MultiArray {
-            var newLine = ""
+            var newLine: [BlockType] = []
             for row in line {
+                result.append(row)
                 newLine.append(row)
             }
-            result.append(newLine)
-            invertedResult.append(String(newLine.reversed()))
+            invertedResult += newLine.reversed()
         }
         return (result, invertedResult)
     }

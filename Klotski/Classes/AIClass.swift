@@ -9,39 +9,18 @@
 // MARK: Native imports
 import UIKit
 
+// MARK: Framework imports
+// Logs
+import CocoaLumberjack
+
 class AI {
-
-    // MARK: Structures for layout trees
-    struct Layout {
-        var id: String
-        var invertedId: String
-        var state: [[BlockType]]
-        var board: [[String]]
-    }
-
-    class LayoutNode<Layout> {
-        var layout: Layout
-        var children: [LayoutNode] = []
-        weak var parent: LayoutNode?
-
-        // MARK: Functions
-        func addChildren(child: LayoutNode) {
-            self.children.append(child)
-            child.parent = self
-        }
-
-        // MARK: Init functions
-        init(_ layout: Layout) {
-            self.layout = layout
-        }
-    }
 
     // MARK: Variables
     // Reference to the parent VC
     var parentVC: MainBoardViewController!
     // Initial layout and layouts records
     private var _initialLayoutNode: LayoutNode<Layout>!
-    private var _passedLayoutsRecords: [String] = []
+    private var _passedLayoutsRecords: [[BlockType]] = []
 
     private var _parentLayoutNodes: [LayoutNode<Layout>] = []
     private var _childrenLayoutNodes: [LayoutNode<Layout>] = []
@@ -49,7 +28,7 @@ class AI {
     // MARK: Functions
     // Function to handle layouts
     func createLayoutNode(state: [[BlockType]], board: [[String]]) -> LayoutNode<Layout> {
-        let layoutArrays: (String, String) = Utils.BoardArrayToArray(board)
+        let layoutArrays: ([BlockType], [BlockType]) = Utils.BoardArrayToArray(state)
         let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: state, board: board)
         return LayoutNode(layout)
     }
@@ -111,7 +90,7 @@ class AI {
             }
             lineCount += 1
         }
-        let layoutArrays: (String, String) = Utils.BoardArrayToArray(board)
+        let layoutArrays: ([BlockType], [BlockType]) = Utils.BoardArrayToArray(state)
         return Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: state, board: board)
     }
 
@@ -208,12 +187,22 @@ class AI {
         return result
     }
 
-    func searchPath() {
+    func searchPath(completion: @escaping ([LayoutNode<Layout>]) -> Void) {
+        var depth: Int = 1
         while !self._parentLayoutNodes.isEmpty {
+            print("-> \(self._parentLayoutNodes.count) for \(depth)")
             for parent in self._parentLayoutNodes {
-                print("-> \(parent.layout.id)")
                 if self.checkWin(layoutNode: parent) {
-                    print("Found a solution")
+                    DDLogInfo("Found a solution")
+                    var resultArray: [LayoutNode<Layout>] = []
+                    var pathParent = parent
+                    while pathParent.parent != nil {
+                        resultArray.append(pathParent)
+                        if let source = pathParent.parent {
+                            pathParent = source
+                        }
+                    }
+                    completion(resultArray.reversed())
                     return
                 }
                 let newChildrens = self.searchLayoutNode(parent)
@@ -221,13 +210,13 @@ class AI {
                     parent.addChildren(child: newChildren)
                 }
                 self._childrenLayoutNodes += newChildrens
+                self._parentLayoutNodes.removeFirst()
             }
-            self._parentLayoutNodes.removeAll()
             self._parentLayoutNodes = self._childrenLayoutNodes
             self._childrenLayoutNodes = []
-            print("=> \(self._parentLayoutNodes.count)")
+            depth += 1
         }
-        print("Didn't find a solution")
+        DDLogInfo("Didn't find a solution")
     }
 
     // MARK: Init functions
@@ -236,7 +225,9 @@ class AI {
         // Create initial layout
         let layout = self.createLayout(fromBoard: initialBoard)
         self._passedLayoutsRecords.append(layout.id)
-        self._passedLayoutsRecords.append(layout.invertedId)
+        if !self._passedLayoutsRecords.contains(layout.invertedId) {
+            self._passedLayoutsRecords.append(layout.invertedId)
+        }
         // Create initial layout node
         self._initialLayoutNode = self.createLayoutNode(state: layout.state, board: layout.board)
         // First save the parent layout node
