@@ -11,14 +11,18 @@ import UIKit
 
 class Utils {
 
-    class func BoardArrayToArray(_ MultiArray: [[String]]) -> String {
+    class func BoardArrayToArray(_ MultiArray: [[String]]) -> (String, String) {
         var result: String = ""
+        var invertedResult: String = ""
         for line in MultiArray {
+            var newLine = ""
             for row in line {
-                result.append(row)
+                newLine.append(row)
             }
+            result.append(newLine)
+            invertedResult.append(String(newLine.reversed()))
         }
-        return result
+        return (result, invertedResult)
     }
 
 }

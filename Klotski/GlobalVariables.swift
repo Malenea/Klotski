@@ -11,5 +11,5 @@ enum BlockType: Int {
 }
 
 enum Direction: Int {
-    case up = 0, left, down, right
+    case none = 0, up, left, down, right
 }

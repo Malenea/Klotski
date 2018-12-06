@@ -29,6 +29,22 @@ class Board {
         }
     }
 
+    // MARK: Functions
+    // Copy functions
+    func copyBoard() -> Board {
+        let newBoard = Board(height: self.height, width: self.width)
+        var lineCount: Int = 0
+        for line in self.nodes {
+            var rowCount: Int = 0
+            for row in line {
+                newBoard.nodes[lineCount][rowCount].block = row.block
+                rowCount += 1
+            }
+            lineCount += 1
+        }
+        return newBoard
+    }
+
     // MARK: Init functions
     init(height: Int, width: Int) {
         self._width = width

@@ -52,14 +52,16 @@ class MainBoardViewController: UIViewController {
         self._boardDisplay.backgroundColor = UIColor.white.withAlphaComponent(0.5)
         self.view.addSubview(self._boardDisplay)
 
-        // Init the AI with the board
-        self._AI = AI(self, initialBoard: self._board)
-
         // Place blocks in the board
         self.placeDefaultBlocksInBoard()
 
+        // Init the AI with the board
+        self._AI = AI(self, initialBoard: self._board)
+
         // Display the blocks in the board
         self.createDisplayNodes(from: self._board, with: self._cellSize)
+
+        self._AI.searchPath()
     }
 
     // Default positionning for the blocks
@@ -92,12 +94,7 @@ class MainBoardViewController: UIViewController {
 
     // Create the colors for each block
     func createDisplayNodes(from board: Board, with cellSize: CGFloat) {
-        // TEST
-        self._board.nodes[3][2].moveDown()
-        self._board.nodes[3][1].moveDown()
-        self._board.nodes[2][2].moveDown()
-        self._board.nodes[1][1].moveDown()
-        //
+        self._boardDisplay.removeAllSubviews()
         var lineCount: Int = 0
         for line in board.nodes {
             var nodeCount: Int = 0
