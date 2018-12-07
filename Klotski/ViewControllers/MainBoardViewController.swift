@@ -69,7 +69,7 @@ class MainBoardViewController: UIViewController {
                         self._boardDisplay.removeFromSuperview()
                         self.createDisplayNodes(from: updatedBoard, with: self._cellSize)
                         self.view.addSubview(self._boardDisplay)
-                        usleep(500)
+                        sleep(1)
                     }
                 }
             }

@@ -28,7 +28,7 @@ class AI {
     // MARK: Functions
     // Function to handle layouts
     func createLayoutNode(state: [[BlockType]], board: [[String]]) -> LayoutNode<Layout> {
-        let layoutArrays: ([BlockType], [BlockType]) = Utils.BoardArrayToArray(state)
+        let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(state)
         let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: state, board: board)
         return LayoutNode(layout)
     }
@@ -90,7 +90,7 @@ class AI {
             }
             lineCount += 1
         }
-        let layoutArrays: ([BlockType], [BlockType]) = Utils.BoardArrayToArray(state)
+        let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(state)
         return Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: state, board: board)
     }
 
@@ -106,7 +106,8 @@ class AI {
     }
 
     // AI and algorythm search functions
-    func checkDirectionsForBlockFrom(_ node: Node, completion: @escaping ([Direction]) -> Void) {
+    // Check directions from nodes' board or from BlockType's board
+    func checkDirectionsForBlockFromBoard(_ node: Node, completion: @escaping ([Direction]) -> Void) {
         var directions: [Direction] = []
         if node.canGoUp() {
             directions.append(.up)
@@ -126,6 +127,126 @@ class AI {
         completion(directions)
     }
 
+    func checkDirectionForBlockFromState(_ board: [[BlockType]], boardId: [[String]], with y: Int, and x: Int, completion: @escaping ([Direction], [Direction]) -> Void) {
+        var directions: [Direction] = []
+        var next: [Direction] = []
+        switch board[y][x] {
+        case .smallBlock:
+            if y > 0, board[y - 1][x] == .empty {
+                directions.append(.up)
+                next.append(.none)
+            }
+            if x > 0, board[y][x - 1] == .empty {
+                directions.append(.left)
+                next.append(.none)
+            }
+            if y < board.count - 1, board[y + 1][x] == .empty {
+                directions.append(.down)
+                next.append(.none)
+            }
+            if x < board[y].count - 1, board[y][x + 1] == .empty {
+                directions.append(.right)
+                next.append(.none)
+            }
+        case .verticalBlock:
+            if y > 0, board[y - 1][x] == .empty {
+                directions.append(.up)
+                next.append(.none)
+            }
+            if x > 0 && board[y][x - 1] == .empty {
+                if y > 0, boardId[y - 1][x] == boardId[y][x], board[y - 1][x - 1] == .empty {
+                    directions.append(.left)
+                    next.append(.up)
+                } else if y < board.count - 1, boardId[y + 1][x] == boardId[y][x], board[y + 1][x - 1] == .empty {
+                    directions.append(.left)
+                    next.append(.down)
+                }
+            }
+            if y < board.count - 1, board[y + 1][x] == .empty {
+                directions.append(.down)
+                next.append(.none)
+            }
+            if x < board[y].count - 1 && board[y][x + 1] == .empty {
+                if y > 0, boardId[y - 1][x] == boardId[y][x], board[y - 1][x + 1] == .empty {
+                    directions.append(.right)
+                    next.append(.up)
+                } else if y < board.count - 1, boardId[y + 1][x] == boardId[y][x], board[y + 1][x + 1] == .empty {
+                    directions.append(.right)
+                    next.append(.down)
+                }
+            }
+        case .horizontalBlock:
+            if y > 0, board[y - 1][x] == .empty {
+                if x > 0, boardId[y][x - 1] == boardId[y][x], board[y - 1][x - 1] == .empty {
+                    directions.append(.up)
+                    next.append(.left)
+                } else if x < board[y].count - 1, boardId[y][x + 1] == boardId[y][x], board[y - 1][x + 1] == .empty {
+                    directions.append(.up)
+                    next.append(.right)
+                }
+            }
+            if x > 0, board[x - 1][y] == .empty {
+                directions.append(.left)
+                next.append(.none)
+            }
+            if y < board.count - 1, board[y + 1][x] == .empty {
+                if x > 0, boardId[y][x - 1] == boardId[y][x], board[y + 1][x - 1] == .empty {
+                    directions.append(.down)
+                    next.append(.left)
+                } else if x < board[y].count - 1, boardId[y][x + 1] == boardId[y][x], board[y + 1][x + 1] == .empty {
+                    directions.append(.down)
+                    next.append(.right)
+                }
+            }
+            if x < board[y].count - 1, board[y][x + 1] == .empty {
+                directions.append(.right)
+                next.append(.none)
+            }
+        case .bigBlock:
+            if y > 0, board[y - 1][x] == .empty {
+                if x > 0, boardId[y][x - 1] == boardId[y][x], board[y - 1][x - 1] == .empty {
+                    directions.append(.up)
+                    next.append(.left)
+                } else if x < board[y].count - 1, boardId[y][x + 1] == boardId[y][x], board[y - 1][x + 1] == .empty {
+                    directions.append(.up)
+                    next.append(.right)
+                }
+            }
+            if x > 0 && board[y][x - 1] == .empty {
+                if y > 0, boardId[y - 1][x] == boardId[y][x], board[y - 1][x - 1] == .empty {
+                    directions.append(.left)
+                    next.append(.up)
+                } else if y < board.count - 1, boardId[y + 1][x] == boardId[y][x], board[y + 1][x - 1] == .empty {
+                    directions.append(.left)
+                    next.append(.down)
+                }
+            }
+            if y < board.count - 1, board[y + 1][x] == .empty {
+                if x > 0, boardId[y][x - 1] == boardId[y][x], board[y + 1][x - 1] == .empty {
+                    directions.append(.down)
+                    next.append(.left)
+                } else if x < board[y].count - 1, boardId[y][x + 1] == boardId[y][x], board[y + 1][x + 1] == .empty {
+                    directions.append(.down)
+                    next.append(.right)
+                }
+            }
+            if x < board[y].count - 1 && board[y][x + 1] == .empty {
+                if y > 0, boardId[y - 1][x] == boardId[y][x], board[y - 1][x + 1] == .empty {
+                    directions.append(.right)
+                    next.append(.up)
+                } else if y < board.count - 1, boardId[y + 1][x] == boardId[y][x], board[y + 1][x + 1] == .empty {
+                    directions.append(.right)
+                    next.append(.down)
+                }
+            }
+        default:
+            directions.append(.none)
+            next.append(.none)
+        }
+        completion(directions, next)
+    }
+
+    // Check functions for layout node from nodes' board or from BlockType's board
     func checkLayoutForLayoutNodeCreationFrom(board: Board) -> LayoutNode<Layout>? {
         let layout = self.createLayout(fromBoard: board)
         if self._passedLayoutsRecords.contains(layout.id) || self._passedLayoutsRecords.contains(layout.invertedId) {
@@ -137,14 +258,24 @@ class AI {
         return childLayoutNode
     }
 
-    func searchLayoutNode(_ layoutNode: LayoutNode<Layout>) -> [LayoutNode<Layout>] {
+    func checkLayoutForLayoutNodeCreationFrom(layout: Layout) -> LayoutNode<Layout>? {
+        if self._passedLayoutsRecords.contains(layout.id) || self._passedLayoutsRecords.contains(layout.invertedId) {
+            return nil
+        }
+        self._passedLayoutsRecords.append(layout.id)
+        self._passedLayoutsRecords.append(layout.invertedId)
+        let childLayoutNode: LayoutNode = LayoutNode(layout)
+        return childLayoutNode
+    }
+
+    func searchLayoutNodeFromBoard(_ layoutNode: LayoutNode<Layout>) -> [LayoutNode<Layout>] {
         var result: [LayoutNode<Layout>] = []
         let initialBoard: Board = self.createBoardFrom(layout: layoutNode.layout)
         var lineCount: Int = 0
         for nodeLine in initialBoard.nodes {
             var rowCount: Int = 0
             for node in nodeLine {
-                self.checkDirectionsForBlockFrom(node) { (directions) in
+                self.checkDirectionsForBlockFromBoard(node) { (directions) in
                     for direction in directions {
                         switch direction {
                         case .up:
@@ -187,6 +318,157 @@ class AI {
         return result
     }
 
+    func searchLayoutNodeFromLayout(_ layoutNode: LayoutNode<Layout>) -> [LayoutNode<Layout>] {
+        var result: [LayoutNode<Layout>] = []
+        var lineCount: Int = 0
+        let layout = layoutNode.layout
+        for stateLine in layout.state {
+            var rowCount: Int = 0
+            for _ in stateLine {
+                self.checkDirectionForBlockFromState(layout.state, boardId: layout.board, with: lineCount, and: rowCount) { (directions, next) in
+                    for (index, direction) in directions.enumerated() {
+                        switch direction {
+                        case .up:
+                            var childState = layout.state
+                            var childBoard = layout.board
+                            childState[lineCount - 1][rowCount] = layout.state[lineCount][rowCount]
+                            childBoard[lineCount - 1][rowCount] = layout.board[lineCount][rowCount]
+                            switch layout.state[lineCount][rowCount] {
+                            case .verticalBlock:
+                                childState[lineCount + 1][rowCount] = .empty
+                                childBoard[lineCount + 1][rowCount] = "0"
+                            case .horizontalBlock:
+                                childState[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[lineCount][next[index] == .left ? rowCount - 1 : rowCount + 1] = .empty
+                                childBoard[lineCount][next[index] == .left ? rowCount - 1 : rowCount + 1] = "0"
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            case .bigBlock:
+                                childState[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = .empty
+                                childBoard[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = "0"
+                                childState[lineCount + 1][rowCount] = .empty
+                                childBoard[lineCount + 1][rowCount] = "0"
+                            default:
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            }
+                            let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(childState)
+                            let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: childState, board: childBoard)
+                            if let childLayoutNode = self.checkLayoutForLayoutNodeCreationFrom(layout: layout) {
+                                result.append(childLayoutNode)
+                            }
+                        case .left:
+                            var childState = layout.state
+                            var childBoard = layout.board
+                            childState[lineCount][rowCount - 1] = layout.state[lineCount][rowCount]
+                            childBoard[lineCount][rowCount - 1] = layout.board[lineCount][rowCount]
+                            switch layout.state[lineCount][rowCount] {
+                            case .verticalBlock:
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = layout.state[lineCount][rowCount]
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = layout.board[lineCount][rowCount]
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount] = .empty
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount] = "0"
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            case .horizontalBlock:
+                                childState[lineCount][rowCount + 1] = .empty
+                                childBoard[lineCount][rowCount + 1] = "0"
+                            case .bigBlock:
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = layout.state[lineCount][rowCount]
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = layout.board[lineCount][rowCount]
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = .empty
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = "0"
+                                childState[lineCount][rowCount + 1] = .empty
+                                childBoard[lineCount][rowCount + 1] = "0"
+                            default:
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            }
+                            let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(childState)
+                            let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: childState, board: childBoard)
+                            if let childLayoutNode = self.checkLayoutForLayoutNodeCreationFrom(layout: layout) {
+                                result.append(childLayoutNode)
+                            }
+                        case .down:
+                            var childState = layout.state
+                            var childBoard = layout.board
+                            childState[lineCount + 1][rowCount] = layout.state[lineCount][rowCount]
+                            childBoard[lineCount + 1][rowCount] = layout.board[lineCount][rowCount]
+                            switch layout.state[lineCount][rowCount] {
+                            case .verticalBlock:
+                                childState[lineCount - 1][rowCount] = .empty
+                                childBoard[lineCount - 1][rowCount] = "0"
+                            case .horizontalBlock:
+                                childState[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[lineCount][next[index] == .left ? rowCount - 1 : rowCount + 1] = .empty
+                                childBoard[lineCount][next[index] == .left ? rowCount - 1 : rowCount + 1] = "0"
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            case .bigBlock:
+                                childState[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[lineCount + 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = .empty
+                                childBoard[lineCount - 1][next[index] == .left ? rowCount - 1 : rowCount + 1] = "0"
+                                childState[lineCount - 1][rowCount] = .empty
+                                childBoard[lineCount - 1][rowCount] = "0"
+                            default:
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            }
+                            let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(childState)
+                            let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: childState, board: childBoard)
+                            if let childLayoutNode = self.checkLayoutForLayoutNodeCreationFrom(layout: layout) {
+                                result.append(childLayoutNode)
+                            }
+                        case .right:
+                            var childState = layout.state
+                            var childBoard = layout.board
+                            childState[lineCount][rowCount + 1] = layout.state[lineCount][rowCount]
+                            childBoard[lineCount][rowCount + 1] = layout.board[lineCount][rowCount]
+                            switch layout.state[lineCount][rowCount] {
+                            case .verticalBlock:
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount] = .empty
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount] = "0"
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            case .horizontalBlock:
+                                childState[lineCount][rowCount - 1] = .empty
+                                childBoard[lineCount][rowCount - 1] = "0"
+                            case .bigBlock:
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = layout.state[lineCount][rowCount]
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount + 1] = layout.board[lineCount][rowCount]
+                                childState[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = .empty
+                                childBoard[next[index] == .up ? lineCount - 1 : lineCount + 1][rowCount - 1] = "0"
+                                childState[lineCount][rowCount - 1] = .empty
+                                childBoard[lineCount][rowCount - 1] = "0"
+                            default:
+                                childState[lineCount][rowCount] = .empty
+                                childBoard[lineCount][rowCount] = "0"
+                            }
+                            let layoutArrays: ([BlockType], [BlockType]) = Utils.boardArrayToArray(childState)
+                            let layout = Layout(id: layoutArrays.0, invertedId: layoutArrays.1, state: childState, board: childBoard)
+                            if let childLayoutNode = self.checkLayoutForLayoutNodeCreationFrom(layout: layout) {
+                                result.append(childLayoutNode)
+                            }
+                        default:
+                            break
+                        }
+                    }
+                }
+                rowCount += 1
+            }
+            lineCount += 1
+        }
+        return result
+    }
+
+    // Main AI search path function
     func searchPath(completion: @escaping ([LayoutNode<Layout>]) -> Void) {
         var depth: Int = 1
         while !self._parentLayoutNodes.isEmpty {
@@ -205,7 +487,7 @@ class AI {
                     completion(resultArray.reversed())
                     return
                 }
-                let newChildrens = self.searchLayoutNode(parent)
+                let newChildrens = self.searchLayoutNodeFromLayout(parent)
                 for newChildren in newChildrens {
                     parent.addChildren(child: newChildren)
                 }

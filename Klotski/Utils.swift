@@ -11,7 +11,7 @@ import UIKit
 
 class Utils {
 
-    class func BoardArrayToArray(_ MultiArray: [[BlockType]]) -> ([BlockType], [BlockType]) {
+    class func boardArrayToArray(_ MultiArray: [[BlockType]]) -> ([BlockType], [BlockType]) {
         var result: [BlockType] = []
         var invertedResult: [BlockType] = []
         for line in MultiArray {
