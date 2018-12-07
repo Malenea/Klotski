@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
 
+        // Hide status bar for launch screen
+        UIApplication.shared.isStatusBarHidden = false
+
         return true
     }
 

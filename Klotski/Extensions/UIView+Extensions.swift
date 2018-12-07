@@ -63,4 +63,29 @@ extension UIView {
         }
     }
 
+    func fadeIn(_ duration: TimeInterval = 0.25, completion: (() -> Void)? = nil) {
+        self.layer.removeAllAnimations()
+        self.isHidden = false
+        UIView.animate(withDuration: duration, delay: 0.0, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 1.0
+            if let completion = completion {
+                completion()
+            }
+        })
+    }
+
+    func fadeOut(_ duration: TimeInterval = 0.25, completion: (() -> Void)? = nil) {
+        DispatchQueue.main.async {
+            self.layer.removeAllAnimations()
+            UIView.animate(withDuration: duration, delay: 0.0, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.alpha = 0.0
+            }, completion: { _ in
+                self.isHidden = true
+                if let completion = completion {
+                    completion()
+                }
+            })
+        }
+    }
+
 }
