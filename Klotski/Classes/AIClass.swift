@@ -21,7 +21,7 @@ class AI {
     
     // Initial layout and layouts records
     private var _initialLayoutNode: LayoutNode<Layout>!
-    private var _passedLayoutsRecords: [[BlockType]] = []
+    private var _passedLayoutsRecords: [[BlockType]: Bool] = [:]
 
     private var _parentLayoutNodes: [LayoutNode<Layout>] = []
     private var _childrenLayoutNodes: [LayoutNode<Layout>] = []
@@ -232,21 +232,23 @@ class AI {
     // Check functions for layout node from nodes' board or from BlockType's board
     func checkLayoutForLayoutNodeCreationFrom(board: Board) -> LayoutNode<Layout>? {
         let layout = self.createLayout(fromBoard: board)
-        if self._passedLayoutsRecords.contains(layout.id) || self._passedLayoutsRecords.contains(layout.invertedId) {
+        if self._passedLayoutsRecords[layout.id] != nil ||
+        self._passedLayoutsRecords[layout.invertedId] != nil {
             return nil
         }
-        self._passedLayoutsRecords.append(layout.id)
-        self._passedLayoutsRecords.append(layout.invertedId)
+        self._passedLayoutsRecords[layout.id] = true
+        self._passedLayoutsRecords[layout.invertedId] = true
         let childLayoutNode: LayoutNode = LayoutNode(layout)
         return childLayoutNode
     }
 
     func checkLayoutForLayoutNodeCreationFrom(layout: Layout) -> LayoutNode<Layout>? {
-        if self._passedLayoutsRecords.contains(layout.id) || self._passedLayoutsRecords.contains(layout.invertedId) {
+        if self._passedLayoutsRecords[layout.id] != nil ||
+            self._passedLayoutsRecords[layout.invertedId] != nil {
             return nil
         }
-        self._passedLayoutsRecords.append(layout.id)
-        self._passedLayoutsRecords.append(layout.invertedId)
+        self._passedLayoutsRecords[layout.id] = true
+        self._passedLayoutsRecords[layout.invertedId] = true
         let childLayoutNode: LayoutNode = LayoutNode(layout)
         return childLayoutNode
     }
@@ -549,9 +551,9 @@ class AI {
         self.parentVC = parentVC
         // Create initial layout
         let layout = self.createLayout(fromBoard: initialBoard)
-        self._passedLayoutsRecords.append(layout.id)
-        if !self._passedLayoutsRecords.contains(layout.invertedId) {
-            self._passedLayoutsRecords.append(layout.invertedId)
+        self._passedLayoutsRecords[layout.id] = true
+        if self._passedLayoutsRecords[layout.invertedId] == nil {
+            self._passedLayoutsRecords[layout.invertedId] = true
         }
         // Create initial layout node
         self._initialLayoutNode = self.createLayoutNode(state: layout.state, board: layout.board)
