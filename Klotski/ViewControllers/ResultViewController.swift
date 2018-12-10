@@ -71,7 +71,7 @@ class ResultViewController: PageboyViewController {
         defaultViewController.view.addSubview(defaultView)
         self.viewControllers.append(defaultViewController)
         self._searchButton = TransitionButton(frame: CGRect(x: (self.view.frame.width - 160.0) / 2,
-                                                            y: self.view.frame.height - 160.0,
+                                                            y: self.view.frame.height - 120.0,
                                                             width: 160.0,
                                                             height: 50.0))
         self._searchButton.layer.cornerRadius = self._searchButton.frame.height / 2
@@ -81,14 +81,14 @@ class ResultViewController: PageboyViewController {
         self._searchButton.addTarget(self, action: #selector(self.actionForTappedOnSearch), for: .touchUpInside)
         self.view.addSubview(self._searchButton)
         self._depthLabel = UILabel(frame: CGRect(x: (self.view.frame.width - 240.0) / 2,
-                                                 y: self.view.frame.height - 90.0,
+                                                 y: self.view.frame.height - 50.0,
                                                  width: 240.0,
                                                  height: 30.0))
         self._depthLabel.setAttributedText("", withColor: .defaultBlack, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
         self._depthLabel.textAlignment = .center
         self.view.addSubview(self._depthLabel)
         let title = UIImageView(frame: CGRect(x: (self.view.frame.width - 240.0) / 2,
-                                              y: 90.0,
+                                              y: 75.0,
                                               width: 240.0,
                                               height: 48.0))
         title.image = UIImage(named: "KlotskiTitle")
