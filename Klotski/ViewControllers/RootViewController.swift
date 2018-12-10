@@ -43,7 +43,7 @@ class RootViewController: UIViewController {
                 DispatchQueue.main.async {
                     self._resultViewController._isFinished = true
                     self._resultViewController._searchButton.stopAnimation()
-                    self._resultViewController._searchButton.fadeOut(0.5)
+                    self._resultViewController._searchButton.setAttributedTitle("Play", withColor: .white, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
                     self._resultViewController._depthLabel.setAttributedText("Found a solution !", withColor: .defaultBlack, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
                     for node in layoutNodes {
                         let updatedBoard = self._AI.createBoardFrom(layout: node.layout)

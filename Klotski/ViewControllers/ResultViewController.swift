@@ -31,12 +31,39 @@ class ResultViewController: PageboyViewController {
 
     // Control variable
     var _isFinished: Bool = false
+    var _isPlaying: Bool = false
+    private var _player: Timer!
+    private var _currentIndex: Int = 0
 
     // MARK: Functions
     @objc func actionForTappedOnSearch(_ sender: UIButton) {
-        self._searchButton.startAnimation()
-        self.parentVC.startPathSearch()
-        self._depthLabel.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        if !self._isFinished {
+            self._searchButton.startAnimation()
+            self.parentVC.startPathSearch()
+            self._depthLabel.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        } else {
+            if !self._isPlaying {
+                self._isPlaying = true
+                if self._currentIndex > self.viewControllers.count - 1 {
+                    self._currentIndex = 0
+                }
+                self._searchButton.setAttributedTitle("Pause", withColor: .white, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
+                self._player = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true, block: { _ in
+                    if self._currentIndex > self.viewControllers.count - 1 {
+                        self._isPlaying = false
+                        self._searchButton.setAttributedTitle("Restard", withColor: .white, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
+                        self._player.invalidate()
+                    }
+                    self.scrollToPage(PageboyViewController.Page.at(index: self._currentIndex), animated: false)
+                    self._depthLabel.setAttributedText("Depth: \(self._currentIndex)", withColor: .defaultBlack, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
+                    self._currentIndex += 1
+                })
+            } else {
+                self._isPlaying = false
+                self._searchButton.setAttributedTitle("Play", withColor: .white, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
+                self._player.invalidate()
+            }
+        }
     }
 
     func initResultViewWithDefault(defaultView: UIView) {
@@ -61,7 +88,7 @@ class ResultViewController: PageboyViewController {
         self._depthLabel.textAlignment = .center
         self.view.addSubview(self._depthLabel)
         let title = UIImageView(frame: CGRect(x: (self.view.frame.width - 240.0) / 2,
-                                              y: 30.0,
+                                              y: 90.0,
                                               width: 240.0,
                                               height: 48.0))
         title.image = UIImage(named: "KlotskiTitle")
@@ -80,6 +107,9 @@ class ResultViewController: PageboyViewController {
 
         // Set the root background
         self.view.backgroundColor = .clear
+
+        // Remove the scroll possibility
+        self.isScrollEnabled = false
     }
 }
 
@@ -90,9 +120,6 @@ extension ResultViewController: PageboyViewControllerDataSource {
     }
 
     func viewController(for pageboyViewController: PageboyViewController, at index: PageboyViewController.PageIndex) -> UIViewController? {
-        if self._isFinished {
-            self._depthLabel.setAttributedText("Depth: \(index + 1)", withColor: .defaultBlack, withFont: UIFont.systemFont(ofSize: 16.0, weight: UIFont.Weight.heavy))
-        }
         return self.viewControllers[index]
     }
 
